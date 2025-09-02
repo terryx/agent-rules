@@ -1,6 +1,6 @@
 # Guard Clauses / Fail-Fast
 
-> **Rule from AGENTS.md**: Guard Clauses / Fail-Fast: Handle invalid or special cases early and return immediately.
+> Guard Clauses / Fail-Fast: Handle invalid or special cases early and return immediately.
 
 ### ❌ Bad Example: Deeply nested conditions
 
@@ -26,6 +26,8 @@ function calculateDiscount(price, customerType, coupon) {
 - Hard to follow the main flow
 - Error handling is buried at the bottom
 - More cognitive load to understand
+
+---
 
 ### ✅ Good Example: Guard clauses with early returns
 
