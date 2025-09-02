@@ -1,6 +1,8 @@
 # Guard Clauses / Fail-Fast
 
-> Guard Clauses / Fail-Fast: Handle invalid or special cases early and return immediately.
+```markdown
+Guard Clauses / Fail-Fast: Handle invalid or special cases early and return immediately.
+```
 
 ### ❌ Bad Example: Deeply nested conditions
 
