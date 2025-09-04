@@ -18,19 +18,20 @@ You are a strict reviewer. Evaluate the candidate code against the rubric criter
 ```
 
 ## Task
-Generate a refactored version of the bad example that follows the good example pattern to fix the branching issues.
+1. Refactor the candidate code below to follow the Branching Patterns rubric criteria listed above
+2. Compare your refactored code against the good example reference to evaluate quality
+3. Score based on how well your refactored code matches the good example quality (0 = poor like bad example, 1 = excellent like good example)
 
-## Candidate Code to Fix:
+## Code to Refactor:
 ```javascript
 {CANDIDATE_CODE}
 ```
 
-For each rubric item, output JSON with a 0-1 score, a short reason, and the refactored code.
 Respond with only valid JSON in this format:
 {
   "branching_patterns": {
-    "score": 0.5,
-    "reason": "explanation",
-    "refactored_code": "refactored code"
+    "score": 0,
+    "reason": "explanation of how refactored code compares to good example",
+    "refactored_code": "your refactored code here"
   }
 }
