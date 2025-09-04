@@ -15,7 +15,7 @@
 - Always use static, top-level ESM imports (import X from 'module'); do not use dynamic imports (import()) or require() inside functions or conditionals.
 - Prefer function declarations to function expressions.
 
-## Git Workflow
+## Git
 - Adopt trunk-based development.
 - Before pushing to remote, run `git pull origin main`
 - Adopt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
