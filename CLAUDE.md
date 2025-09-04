@@ -1,3 +1,5 @@
 # Claude Agent Instructions
 
-All agents must refer to and follow the guidelines outlined in AGENTS.md for proper code evaluation and implementation practices.
+## Git
+- Adopt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+- Do not add "Generated with [Claude Code](https://claude.ai/code)"

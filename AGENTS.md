@@ -16,11 +16,4 @@
 - Prefer function declarations to function expressions.
 
 ## Git
-- Adopt trunk-based development.
-- Before pushing to remote, run `git pull origin main`
 - Adopt [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
-- Do not add "Generated with [Claude Code](https://claude.ai/code)"
-
-## Vendors
-- Adopt design systems from the vendor folder
-- Do not make changes to the vendor folder

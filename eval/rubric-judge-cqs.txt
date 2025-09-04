@@ -1,10 +1,7 @@
 You are a strict reviewer. Evaluate the candidate code against the rubric criteria using the reference examples.
 
-## Rubric: Command-Query Separation (CQS)
-- A function either returns data or causes effects, never both
-- Queries should not mutate state
-- Commands should not return meaningful data
-- Clear separation of concerns between reading and writing operations
+## General Instructions
+- Command–Query Separation (CQS): A function either returns data or causes effects, never both.
 
 ## Reference Examples:
 

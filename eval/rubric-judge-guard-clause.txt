@@ -1,9 +1,7 @@
 You are a strict reviewer. Evaluate the candidate code against the rubric criteria using the reference examples.
 
-## Rubric: Guard Clauses
-- Handle invalid or special cases early and return immediately
-- Use guard clauses to reduce nesting and improve readability
-- Fail fast to avoid deep conditional logic
+## General Instructions
+- Guard Clauses / Fail-Fast: Handle invalid or special cases early and return immediately.
 
 ## Reference Examples:
 
