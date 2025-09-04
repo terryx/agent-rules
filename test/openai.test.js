@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import OpenAI from 'openai';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
@@ -9,15 +9,15 @@ import { removeAndCountSet, updateUserSet, processOrderSet } from '../fixtures/c
 
 dotenv.config();
 
-const AI_MODEL = 'gemini-2.0-flash';
+const AI_MODEL = 'gpt-4o';
 
-describe('Gemini Client', () => {
-  let genAI;
-  let model;
+describe('OpenAI Client', () => {
+  let openai;
   
   beforeAll(() => {
-    genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-    model = genAI.getGenerativeModel({ model: AI_MODEL });
+    openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
   });
 
   const branchingTestSets = [
@@ -46,9 +46,11 @@ describe('Gemini Client', () => {
         .replace('{GOOD_EXAMPLE}', set.good)
         .replace('{CANDIDATE_CODE}', set.bad);
       
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await openai.chat.completions.create({
+        model: AI_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      const text = result.choices[0].message.content;
 
       // Parse JSON response and check score
       const evaluation = JSON.parse(text.replace(/```json\n?|```/g, ''));
@@ -65,9 +67,11 @@ describe('Gemini Client', () => {
         .replace('{GOOD_EXAMPLE}', set.good)
         .replace('{CANDIDATE_CODE}', set.bad);
       
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await openai.chat.completions.create({
+        model: AI_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      const text = result.choices[0].message.content;
 
       // Parse JSON response and check score
       const evaluation = JSON.parse(text.replace(/```json\n?|```/g, ''));
@@ -84,9 +88,11 @@ describe('Gemini Client', () => {
         .replace('{GOOD_EXAMPLE}', set.good)
         .replace('{CANDIDATE_CODE}', set.bad);
       
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await openai.chat.completions.create({
+        model: AI_MODEL,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      const text = result.choices[0].message.content;
 
       // Parse JSON response and check score
       const evaluation = JSON.parse(text.replace(/```json\n?|```/g, ''));

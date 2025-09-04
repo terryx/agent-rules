@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from '@google/generative-ai';
+import Anthropic from '@anthropic-ai/sdk';
 import dotenv from 'dotenv';
 import fs from 'fs';
 import path from 'path';
@@ -9,15 +9,15 @@ import { removeAndCountSet, updateUserSet, processOrderSet } from '../fixtures/c
 
 dotenv.config();
 
-const AI_MODEL = 'gemini-2.0-flash';
+const AI_MODEL = 'claude-opus-4-20250514';
 
-describe('Gemini Client', () => {
-  let genAI;
-  let model;
+describe('Claude Client', () => {
+  let anthropic;
   
   beforeAll(() => {
-    genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY);
-    model = genAI.getGenerativeModel({ model: AI_MODEL });
+    anthropic = new Anthropic({
+      apiKey: process.env.ANTHROPIC_API_KEY,
+    });
   });
 
   const branchingTestSets = [
@@ -46,9 +46,12 @@ describe('Gemini Client', () => {
         .replace('{GOOD_EXAMPLE}', set.good)
         .replace('{CANDIDATE_CODE}', set.bad);
       
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await anthropic.messages.create({
+        model: AI_MODEL,
+        max_tokens: 1024,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      const text = result.content[0].text;
 
       // Parse JSON response and check score
       const evaluation = JSON.parse(text.replace(/```json\n?|```/g, ''));
@@ -65,9 +68,12 @@ describe('Gemini Client', () => {
         .replace('{GOOD_EXAMPLE}', set.good)
         .replace('{CANDIDATE_CODE}', set.bad);
       
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await anthropic.messages.create({
+        model: AI_MODEL,
+        max_tokens: 1024,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      const text = result.content[0].text;
 
       // Parse JSON response and check score
       const evaluation = JSON.parse(text.replace(/```json\n?|```/g, ''));
@@ -84,9 +90,12 @@ describe('Gemini Client', () => {
         .replace('{GOOD_EXAMPLE}', set.good)
         .replace('{CANDIDATE_CODE}', set.bad);
       
-      const result = await model.generateContent(prompt);
-      const response = await result.response;
-      const text = response.text();
+      const result = await anthropic.messages.create({
+        model: AI_MODEL,
+        max_tokens: 1024,
+        messages: [{ role: 'user', content: prompt }],
+      });
+      const text = result.content[0].text;
 
       // Parse JSON response and check score
       const evaluation = JSON.parse(text.replace(/```json\n?|```/g, ''));

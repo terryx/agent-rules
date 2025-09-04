@@ -1,0 +1,36 @@
+You are a strict reviewer. Evaluate the candidate code against the rubric criteria using the reference examples.
+
+## Rubric: Guard Clauses
+- Handle invalid or special cases early and return immediately
+- Use guard clauses to reduce nesting and improve readability
+- Fail fast to avoid deep conditional logic
+
+## Reference Examples:
+
+### Bad Example (Score: 0)
+```javascript
+{BAD_EXAMPLE}
+```
+
+### Good Example (Score: 1)
+```javascript  
+{GOOD_EXAMPLE}
+```
+
+## Task
+Generate a refactored version of the bad example that follows the good example pattern to fix the guard clause issues.
+
+## Candidate Code to Fix:
+```javascript
+{CANDIDATE_CODE}
+```
+
+For each rubric item, output JSON with a 0-1 score, a short reason, and the refactored code.
+Respond with only valid JSON in this format:
+{
+  "guard_clauses": {
+    "score": 0.5,
+    "reason": "explanation",
+    "refactored_code": "refactored code"
+  }
+}

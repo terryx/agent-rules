@@ -1,0 +1,37 @@
+You are a strict reviewer. Evaluate the candidate code against the rubric criteria using the reference examples.
+
+## Rubric: Command-Query Separation (CQS)
+- A function either returns data or causes effects, never both
+- Queries should not mutate state
+- Commands should not return meaningful data
+- Clear separation of concerns between reading and writing operations
+
+## Reference Examples:
+
+### Bad Example (Score: 0)
+```javascript
+{BAD_EXAMPLE}
+```
+
+### Good Example (Score: 1)
+```javascript  
+{GOOD_EXAMPLE}
+```
+
+## Task
+Generate a refactored version of the bad example that follows the good example pattern to fix the command-query separation issues.
+
+## Candidate Code to Fix:
+```javascript
+{CANDIDATE_CODE}
+```
+
+For each rubric item, output JSON with a 0-1 score, a short reason, and the refactored code.
+Respond with only valid JSON in this format:
+{
+  "command_query_separation": {
+    "score": 0.5,
+    "reason": "explanation",
+    "refactored_code": "refactored code"
+  }
+}
