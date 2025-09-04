@@ -2,6 +2,8 @@
 
 This project provides AI rubric evaluation system for testing clean code patterns across multiple AI providers.
 
+For more details on clean code principles, see: https://tyuen.com/posts/clean-code-principles
+
 ## Setup
 
 1. Install dependencies:
